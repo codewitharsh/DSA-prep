@@ -1,0 +1,34 @@
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        //hashing approach
+        // vector<int> result;
+        // unordered_map<int,int> mp;
+        // for(int i=0;i<nums.size();i++)
+        // {
+        //     if(mp.find(target-nums[i])!=mp.end())
+        //     {
+                // result.push_back(mp[target-nums[i]]);
+                // result.push_back(i);
+        //         return {mp[target-nums[i]],i};
+        //     }
+        //     mp[nums[i]]=i;
+        // }
+        // return {-1,-1};
+        // two pointer approach
+        int n=nums.size();
+        vector<pair<int,int>> ipairs;
+        for(int i=0;i<n;i++) ipairs.push_back({nums[i],i});
+        sort(ipairs.begin(),ipairs.end());
+        int start=0;
+        int end=n-1;
+        while(start<end)
+        {
+            int sum=ipairs[start].first+ipairs[end].first;
+            if(sum==target) return {ipairs[start].second,ipairs[end].second};
+            else if(sum>target) end--;
+            else start++;
+        }
+        return {-1,-1};
+    }
+};
