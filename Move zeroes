@@ -1,0 +1,37 @@
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        // int ct=count(nums.begin(),nums.end(),0);
+        // nums.erase(remove(nums.begin(),nums.end(),0),nums.end());
+        // while(ct>0)
+        // {
+        //     nums.push_back(0);
+        //     ct--;
+        // }
+        // int zeroes=0;
+        // for(int i=0;i<nums.size();i++)
+        // {
+        //     if(nums[i]==0)
+        //     {
+        //         zeroes++;
+        //     }
+        //     else
+        //     {
+        //         if(zeroes>0)
+        //         {
+        //             nums[i-zeroes]=nums[i];
+        //             nums[i]=0;
+        //         }
+        //     }
+        // }
+        int j=0;
+        for(int i=0;i<nums.size();i++)
+        {
+            if(nums[i]!=0) 
+            {
+                nums[j++]=nums[i];
+            }
+        }
+        while(j<nums.size()) nums[j++]=0;
+    }
+};
