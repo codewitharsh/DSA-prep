@@ -1,0 +1,31 @@
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        // hashing
+        // int n=nums.size();
+        // unordered_map<int,int> mp;
+        // for(int i=0;i<n;i++)
+        // {
+        //     mp[nums[i]]++;
+        // }
+        // for(int i=0;i<mp.size();i++)
+        // {
+        //     if(mp[i]>n/2) return i;
+        // }
+        // return -1;
+        // sorting
+        // nth_element(nums.begin(),nums.begin()+nums.size()/2,nums.end());
+        // sort(nums.begin(),nums.end());
+        // return nums[nums.size()/2];
+        // candidate and votes
+        int c=0;
+        int v=0;
+        for(auto a:nums)
+        {
+            if(v==0) c=a;
+            if(c==a) v++;
+            else v--;
+        }
+        return c;
+    }
+};
